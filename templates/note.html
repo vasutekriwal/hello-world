@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ note['title'] }}</h2>
+  <p>{{ note['content'] | safe }}</p>
+
+  <a class="button" href="{{ url_for('edit', note_id=note['id']) }}">Edit</a>
+  <form action="{{ url_for('delete', note_id=note['id']) }}" method="post" style="display:inline;">
+    <button class="button delete" type="submit">Delete</button>
+  </form>
+  <br><br>
+  <a href="{{ url_for('index') }}">Back to list</a>
+{% endblock %}
