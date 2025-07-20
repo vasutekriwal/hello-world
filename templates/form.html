@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ action }} Note</h2>
+  <form method="post">
+    <label for="title">Title</label><br>
+    <input type="text" name="title" id="title" value="{{ note['title'] if note else '' }}" required><br><br>
+
+    <label for="content">Content</label><br>
+    <textarea name="content" id="content" rows="10">{{ note['content'] if note else '' }}</textarea><br><br>
+
+    <button type="submit" class="button">{{ action }}</button>
+  </form>
+{% endblock %}
